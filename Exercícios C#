@@ -1,0 +1,555 @@
+Lista 05 – DateTime / Switch
+
+1- a) using System;
+
+class Program
+{
+    public static void Main(string[] args)
+    {
+        DateTime agora = DateTime.Now;
+        Console.WriteLine("Data e hora atual: " + agora);
+        Console.WriteLine("Data: " + agora.ToString("dd/MM/yyyy"));
+        Console.WriteLine("Hora: " + agora.ToString("HH:mm:ss"));
+
+        Console.Write("Pressione qualquer tecla para continuar . . . ");
+        Console.ReadKey(true);
+    }
+}
+
+b) using System;
+
+class Program
+{
+    public static void Main(string[] args)
+    {
+        Console.Write("Digite a primeira data (dd/mm/aaaa): ");
+        DateTime d1 = DateTime.Parse(Console.ReadLine());
+
+        Console.Write("Digite a segunda data (dd/mm/aaaa): ");
+        DateTime d2 = DateTime.Parse(Console.ReadLine());
+
+        TimeSpan diferenca = d2 - d1;
+        Console.WriteLine("Diferença: " + Math.Abs(diferenca.Days) + " dia(s).");
+
+        Console.Write("Pressione qualquer tecla para continuar . . . ");
+        Console.ReadKey(true);
+    }
+}
+
+c) using System;
+
+class Program
+{
+    public static void Main(string[] args)
+    {
+        Console.Write("Digite sua data de nascimento (dd/mm/aaaa): ");
+        DateTime nascimento = DateTime.Parse(Console.ReadLine());
+        DateTime hoje = DateTime.Today;
+
+        int idade = hoje.Year - nascimento.Year;
+        // Se ainda não fez aniversário este ano, subtrai 1
+        if (nascimento.Date > hoje.AddYears(-idade))
+            idade--;
+
+        Console.WriteLine("Sua idade é: " + idade + " anos.");
+
+        Console.Write("Pressione qualquer tecla para continuar . . . ");
+        Console.ReadKey(true);
+    }
+}
+
+d) using System;
+
+class Program
+{
+    public static void Main(string[] args)
+    {
+        Console.Write("Digite uma data (dd/mm/aaaa): ");
+        DateTime data = DateTime.Parse(Console.ReadLine());
+
+        string feriado = "";
+
+        // Feriados nacionais fixos
+        switch (data.Day + "/" + data.Month)
+        {
+            case "1/1":   feriado = "Confraternização Universal"; break;
+            case "21/4":  feriado = "Tiradentes"; break;
+            case "1/5":   feriado = "Dia do Trabalho"; break;
+            case "7/9":   feriado = "Independência do Brasil"; break;
+            case "12/10": feriado = "Nossa Senhora Aparecida"; break;
+            case "2/11":  feriado = "Finados"; break;
+            case "15/11": feriado = "Proclamação da República"; break;
+            case "20/11": feriado = "Consciência Negra"; break;
+            case "25/12": feriado = "Natal"; break;
+        }
+
+        if (feriado != "")
+            Console.WriteLine("É feriado nacional: " + feriado);
+        else
+            Console.WriteLine("Não é um feriado nacional fixo.");
+
+        Console.Write("Pressione qualquer tecla para continuar . . . ");
+        Console.ReadKey(true);
+    }
+}
+
+e) using System;
+
+class Program
+{
+    public static void Main(string[] args)
+    {
+        Console.Write("Digite uma data (dd/mm/aaaa): ");
+        DateTime data = DateTime.Parse(Console.ReadLine());
+
+        string feriado = "";
+
+        // Feriados nacionais fixos
+        switch (data.Day + "/" + data.Month)
+        {
+            case "1/1":   feriado = "Confraternização Universal"; break;
+            case "21/4":  feriado = "Tiradentes"; break;
+            case "1/5":   feriado = "Dia do Trabalho"; break;
+            case "7/9":   feriado = "Independência do Brasil"; break;
+            case "12/10": feriado = "Nossa Senhora Aparecida"; break;
+            case "2/11":  feriado = "Finados"; break;
+            case "15/11": feriado = "Proclamação da República"; break;
+            case "20/11": feriado = "Consciência Negra"; break;
+            case "25/12": feriado = "Natal"; break;
+        }
+
+        if (feriado != "")
+            Console.WriteLine("É feriado nacional: " + feriado);
+        else
+            Console.WriteLine("Não é um feriado nacional fixo.");
+
+        Console.Write("Pressione qualquer tecla para continuar . . . ");
+        Console.ReadKey(true);
+    }
+}
+
+f) using System;
+
+class Program
+{
+    public static void Main(string[] args)
+    {
+        Console.Write("Digite um número inteiro: ");
+        int n = int.Parse(Console.ReadLine());
+
+        if (n > 0)
+            Console.WriteLine("O número é positivo.");
+        else if (n < 0)
+            Console.WriteLine("O número é negativo.");
+        else
+            Console.WriteLine("O número é zero.");
+
+        Console.Write("Pressione qualquer tecla para continuar . . . ");
+        Console.ReadKey(true);
+    }
+}
+
+g) using System;
+
+class Program
+{
+    public static void Main(string[] args)
+    {
+        Console.Write("Digite um número inteiro: ");
+        int n = int.Parse(Console.ReadLine());
+
+        if (n > 0)
+            Console.WriteLine("O número é positivo.");
+        else if (n < 0)
+            Console.WriteLine("O número é negativo.");
+        else
+            Console.WriteLine("O número é zero.");
+
+        Console.Write("Pressione qualquer tecla para continuar . . . ");
+        Console.ReadKey(true);
+    }
+}
+
+h) using System;
+
+class Program
+{
+    public static void Main(string[] args)
+    {
+        Console.Write("Digite uma letra: ");
+        char letra = char.ToLower(Console.ReadLine()[0]);
+
+        if (!char.IsLetter(letra))
+        {
+            Console.WriteLine("Isso não é uma letra!");
+        }
+        else
+        {
+            switch (letra)
+            {
+                case 'a':
+                case 'e':
+                case 'i':
+                case 'o':
+                case 'u':
+                    Console.WriteLine("É uma vogal.");
+                    break;
+                default:
+                    Console.WriteLine("É uma consoante.");
+                    break;
+            }
+        }
+
+        Console.Write("Pressione qualquer tecla para continuar . . . ");
+        Console.ReadKey(true);
+    }
+}
+
+i) using System;
+
+class Program
+{
+    public static void Main(string[] args)
+    {
+        Console.Write("Digite um número de 1 a 7: ");
+        int dia = int.Parse(Console.ReadLine());
+
+        switch (dia)
+        {
+            case 1: Console.WriteLine("Domingo"); break;
+            case 2: Console.WriteLine("Segunda-feira"); break;
+            case 3: Console.WriteLine("Terça-feira"); break;
+            case 4: Console.WriteLine("Quarta-feira"); break;
+            case 5: Console.WriteLine("Quinta-feira"); break;
+            case 6: Console.WriteLine("Sexta-feira"); break;
+            case 7: Console.WriteLine("Sábado"); break;
+            default: Console.WriteLine("Número inválido! Digite de 1 a 7."); break;
+        }
+
+        Console.Write("Pressione qualquer tecla para continuar . . . ");
+        Console.ReadKey(true);
+    }
+}
+
+j) using System;
+
+class Program
+{
+    public static void Main(string[] args)
+    {
+        Console.Write("Escolha o tamanho da camiseta (P, M ou G): ");
+        char tamanho = char.ToUpper(Console.ReadLine()[0]);
+
+        switch (tamanho)
+        {
+            case 'P':
+                Console.WriteLine("Camiseta P - Preço: R$ 30,00");
+                break;
+            case 'M':
+                Console.WriteLine("Camiseta M - Preço: R$ 35,00");
+                break;
+            case 'G':
+                Console.WriteLine("Camiseta G - Preço: R$ 40,00");
+                break;
+            default:
+                Console.WriteLine("Tamanho inválido!");
+                break;
+        }
+
+        Console.Write("Pressione qualquer tecla para continuar . . . ");
+        Console.ReadKey(true);
+    }
+}
+
+Lista 07 – While / Do ... While
+
+1- a) using System;
+
+class Program
+{
+    public static void Main(string[] args)
+    {
+        Console.Write("Digite um número inteiro positivo: ");
+        int n = int.Parse(Console.ReadLine());
+
+        Console.WriteLine("Números pares entre 0 e " + n + ":");
+        for (int i = 0; i <= n; i++)
+        {
+            if (i % 2 == 0)
+                Console.WriteLine(i);
+        }
+
+        Console.Write("Pressione qualquer tecla para continuar . . . ");
+        Console.ReadKey(true);
+    }
+}
+
+b) using System;
+
+class Program
+{
+    public static void Main(string[] args)
+    {
+        Console.Write("Digite um número inteiro: ");
+        int n = int.Parse(Console.ReadLine());
+
+        Console.WriteLine("Tabuada do " + n + ":");
+        for (int i = 1; i <= 10; i++)
+        {
+            Console.WriteLine(n + " x " + i + " = " + (n * i));
+        }
+
+        Console.Write("Pressione qualquer tecla para continuar . . . ");
+        Console.ReadKey(true);
+    }
+}
+
+c) using System;
+
+class Program
+{
+    public static void Main(string[] args)
+    {
+        Console.Write("Quantos números deseja somar? ");
+        int qtd = int.Parse(Console.ReadLine());
+
+        int soma = 0;
+        for (int i = 1; i <= qtd; i++)
+        {
+            Console.Write("Digite o " + i + "º número: ");
+            soma += int.Parse(Console.ReadLine());
+        }
+
+        Console.WriteLine("A soma dos números é: " + soma);
+
+        Console.Write("Pressione qualquer tecla para continuar . . . ");
+        Console.ReadKey(true);
+    }
+}
+
+d) using System;
+
+class Program
+{
+    public static void Main(string[] args)
+    {
+        Console.Write("Cadastre uma senha: ");
+        string senha = Console.ReadLine();
+        Console.Clear();
+
+        bool acertou = false;
+        for (int tentativa = 1; tentativa <= 3; tentativa++)
+        {
+            Console.Write("Tentativa " + tentativa + " de 3 - Digite a senha: ");
+            if (Console.ReadLine() == senha)
+            {
+                acertou = true;
+                break;
+            }
+            Console.WriteLine("Senha incorreta!");
+        }
+
+        if (acertou)
+            Console.WriteLine("Senha correta! Acesso liberado.");
+        else
+            Console.WriteLine("Senha incorreta! Acesso bloqueado.");
+
+        Console.Write("Pressione qualquer tecla para continuar . . . ");
+        Console.ReadKey(true);
+    }
+}
+
+e) using System;
+
+class Program
+{
+    public static void Main(string[] args)
+    {
+        int soma = 0;
+
+        Console.Write("Digite um número (negativo para encerrar): ");
+        int n = int.Parse(Console.ReadLine());
+
+        while (n >= 0)
+        {
+            soma += n;
+            Console.Write("Digite um número (negativo para encerrar): ");
+            n = int.Parse(Console.ReadLine());
+        }
+
+        Console.WriteLine("A soma dos números (sem o negativo) é: " + soma);
+
+        Console.Write("Pressione qualquer tecla para continuar . . . ");
+        Console.ReadKey(true);
+    }
+}
+
+f) using System;
+
+class Program
+{
+    public static void Main(string[] args)
+    {
+        Console.Write("Digite um número inteiro positivo: ");
+        int n = int.Parse(Console.ReadLine());
+
+        Console.WriteLine("Números pares entre 0 e " + n + ":");
+        int i = 0;
+        while (i <= n)
+        {
+            if (i % 2 == 0)
+                Console.WriteLine(i);
+            i++;
+        }
+
+        Console.Write("Pressione qualquer tecla para continuar . . . ");
+        Console.ReadKey(true);
+    }
+}
+
+g) using System;
+
+class Program
+{
+    public static void Main(string[] args)
+    {
+        int n;
+        do
+        {
+            Console.Write("Digite um número inteiro positivo: ");
+            n = int.Parse(Console.ReadLine());
+        } while (n < 0);
+
+        Console.WriteLine("Números pares entre 0 e " + n + ":");
+        int i = 0;
+        do
+        {
+            Console.WriteLine(i);
+            i += 2;
+        } while (i <= n);
+
+        Console.Write("Pressione qualquer tecla para continuar . . . ");
+        Console.ReadKey(true);
+    }
+}
+
+h) using System;
+
+class Program
+{
+    public static void Main(string[] args)
+    {
+        Console.Write("Digite um número inteiro: ");
+        int n = int.Parse(Console.ReadLine());
+
+        Console.WriteLine("Tabuada do " + n + ":");
+        int i = 1;
+        while (i <= 10)
+        {
+            Console.WriteLine(n + " x " + i + " = " + (n * i));
+            i++;
+        }
+
+        Console.Write("Pressione qualquer tecla para continuar . . . ");
+        Console.ReadKey(true);
+    }
+}
+
+i) using System;
+
+class Program
+{
+    public static void Main(string[] args)
+    {
+        int soma = 0;
+        int numero = 1;
+
+        while (numero != 0)
+        {
+            Console.Write("Digite um número (0 para encerrar): ");
+            numero = int.Parse(Console.ReadLine());
+            soma += numero;
+        }
+
+        Console.WriteLine("A soma dos números é: " + soma);
+
+        Console.Write("Pressione qualquer tecla para continuar . . . ");
+        Console.ReadKey(true);
+    }
+}
+
+j) using System;
+
+class Program
+{
+    public static void Main(string[] args)
+    {
+        string senha = "1234";
+        int tentativas = 0;
+        bool acertou = false;
+
+        while (tentativas < 3 && !acertou)
+        {
+            Console.Write("Digite a senha: ");
+            string digitada = Console.ReadLine();
+            tentativas++;
+
+            if (digitada == senha)
+                acertou = true;
+            else
+                Console.WriteLine("Senha incorreta! Tentativa " + tentativas + " de 3.");
+        }
+
+        if (acertou)
+            Console.WriteLine("Senha correta! Acesso liberado.");
+        else
+            Console.WriteLine("Senha incorreta! Acesso bloqueado.");
+
+        Console.Write("Pressione qualquer tecla para continuar . . . ");
+        Console.ReadKey(true);
+    }
+}
+
+k) using System;
+
+class Program
+{
+    public static void Main(string[] args)
+    {
+        int soma = 0;
+        int n;
+
+        do
+        {
+            Console.Write("Digite um número (negativo para encerrar): ");
+            n = int.Parse(Console.ReadLine());
+            if (n >= 0)
+                soma += n;
+        } while (n >= 0);
+
+        Console.WriteLine("A soma dos números (sem o negativo) é: " + soma);
+
+        Console.Write("Pressione qualquer tecla para continuar . . . ");
+        Console.ReadKey(true);
+    }
+}
+
+l) using System;
+
+class Program
+{
+    public static void Main(string[] args)
+    {
+        Console.Write("Digite um número inteiro positivo: ");
+        int n = int.Parse(Console.ReadLine());
+
+        Console.WriteLine("Números pares entre 0 e " + n + ":");
+        for (int i = 0; i <= n; i += 2)
+        {
+            Console.WriteLine(i);
+        }
+
+        Console.Write("Pressione qualquer tecla para continuar . . . ");
+        Console.ReadKey(true);
+    }
+}
